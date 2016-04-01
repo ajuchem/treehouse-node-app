@@ -16,14 +16,13 @@ var req = https.get("https://teamtreehouse.com/" + username + ".json", function(
     body += chunk;
   })
   res.on('end', function() {
-    console.log(body);
+    // Parse the data
+    var profile = JSON.parse(body);
+    // Print the data
+    printMessage(username, profile.badges.length, profile.points.JavaScript);
   })
-  // Parse the data
-  // Print the data
 });
 
 req.on("error", function(error) {
   console.error(error.message);
 })
-
-printMessage("Allie", 100, 5656);
