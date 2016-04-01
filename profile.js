@@ -43,3 +43,5 @@ function get(username) {
   // Connection error
   req.on("error", printError);
 }
+
+module.exports.get = get;
